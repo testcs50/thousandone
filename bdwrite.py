@@ -24,9 +24,7 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route('/')
 def index():
-    # return render_template('bdwrite.html')
-    q = db.execute("SELECT question FROM questions").fetchall()
-    return f'{q}'
+    return render_template('bdwrite.html')
 
 @socketio.on("submit vote")
 def vote():
